@@ -3,10 +3,10 @@ require './character'
 class Brave < Character
   # 必殺攻撃の計算に使う定数
   SPECIAL_ATTACK_CONSTANT = 1.5
-  
+
   # 攻撃処理を実装するメソッド
   def attack(monster)
-    puts "#{@name}の攻撃"
+    # puts "#{@name}の攻撃"
 
     # decision_attack_typeメソッドの呼び出し
     attack_type = decision_attack_type
@@ -15,7 +15,10 @@ class Brave < Character
     # ダメージをHPに反映させる キーワード引数を設定
     cause_damage(target: monster, damage: damage)
 
-    puts "#{monster.name}の残りHPは#{monster.hp}だ"
+    # attack_messageの呼び出し
+    attack_message(attack_type: attack_type)
+    # damage_messageを呼び出す
+    damage_message(target: monster, damage: damage)
   end
 
 
@@ -25,10 +28,10 @@ class Brave < Character
     attack_num = rand(4)
 
     if attack_num == 0
-      puts "必殺攻撃"
+      # puts "必殺攻撃"
       "special_attack"
     else
-      puts "通常攻撃"
+      # puts "通常攻撃"
       "nomal_attack"
     end
   end
@@ -56,7 +59,7 @@ class Brave < Character
     # もしターゲットのHPがマイナスになるなら0を代入
     target.hp = 0 if target.hp < 0
 
-    puts "#{target.name}は#{damage}のダメージを受けた"
+    # puts "#{target.name}は#{damage}のダメージを受けた"
   end
 
   def calculate_special_attack
