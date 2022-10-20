@@ -113,7 +113,7 @@ puts "計算を終了します"
 puts "計算を始めます"
 puts "何回計算を繰り返しますか？"
 counts = gets.to_i
-i = 0
+i = 1
 while i <= counts do
   puts "#{i}回目の計算"
   puts "２つの値を入力してください"
@@ -132,4 +132,11 @@ while i <= counts do
   
   i += 1
 end
+
+# メソッド
+def greeting(name)
+  return "Hello,#{name}"
+  "Good morning, #{name}!"
+end 
+puts greeting('john')
 
